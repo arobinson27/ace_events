@@ -1,0 +1,105 @@
+// out: null
+
+/* Parametric mixin for headings */
+
+.boxShadow(@paramSize: 2px; @paramBlur: 5px; @paramRadius: 5px; @paramColor: #000000) {
+    -webkit-boxShadow: @paramSize, @paramBlur, @paramRadius, @paramColor;
+    -moz-boxShadow: @paramSize, @paramBlur, @paramRadius, @paramColor;
+     boxShadow: @paramSize, @paramBlur, @paramRadius, @paramColor;
+}
+
+.fontStyle(@paramFamily: 'Montserrat', sans-serif; @paramSize: 16px) {
+    font-family: @paramFamily;
+    font-size: @paramSize;
+}
+
+.headerFont(@fontFamily: 'Merriweather', serif; @fontColor: #ffffff; @fontSize: 1.5em) {
+    color: @fontColor; //color of font
+    font-family: @fontFamily;
+    font-size: @fontSize; //this uses font size
+    font-weight: bold; // has no parameters
+    margin-top: @fontSize;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: @fontSize * 1em;
+    text-transform: uppercase;
+}
+
+.headingStyle(@paramColor; @paramSize) {
+    color: @paramColor; // this accepts a font color passed through as an argument
+    font-size: @paramSize; // this accepts a font size passed through as an argument
+    font-weight: bold; // this is static code...not everything has to be dynamic!
+    line-height: @paramSize; // this reuses the same font as before to change line height
+    margin-top: @paramSize / 4;
+    margin-bottom: @paramSize / 4;
+}
+
+.gradient(@paramDirection; @paramColor1; @paramColor2) {
+    background: @paramColor1; /* For bowsers that do no support gradients */
+    background: -o-linear-gradient(to @paramDirection, @paramColor1, @paramColor2);
+    background: -moz-linear-gradient(to @paramDirection, @paramColor1, @paramColor2);
+    background: linear-gradient(to @paramDirection, @paramColor1, @paramColor2);
+}
+
+.roundedCornersAndColor(@paramRadius: 5px; @paramColor1: #ff0000) {
+    -moz-border-radius: @paramRadius;
+    -webkit-border-radius: @paramRadius;
+    border-radius: @paramRadius;
+    background-color: @paramColor1;
+}
+   
+.transition(@paramSeconds: .5s) {
+    -webkit-transition-duration: all @paramSeconds ease-in-out;
+    -moz-transition-duration: all @paramSeconds ease-in-out;
+    -o-transition-duration: all @paramSeconds ease-in-out;
+    transition-duration: all @paramSeconds ease-in-out;
+}
+
+
+/* End parametric mixin for headings */
+
+.btn {
+    width: 175px;
+    display: inline-block;
+    padding: 1em;
+    background: @lightColor;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    letter-spacing: .5px;
+    font-size: 1em;
+    -webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -ms-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+    
+&:link {
+    color: @lightColor;    
+}
+
+&:hover {
+    background: #ff0000;
+    color: @color1;
+    box-shadow: inset 0 0 10px @color5, 0 0 10px @color4;
+    text-decoration: underline;
+    color: @lightColor;
+}
+    }
+
+.header {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.navtext {
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.transform {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
